@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Ingliz Tili O'rganamiz! 🎮</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Barcha CSS shu yerda */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #4A90E2;
+            --primary-purple: #9B59B6;
+            --primary-pink: #FF6B9D;
+            --primary-orange: #FF9F43;
+            --primary-green: #26DE81;
+            --primary-yellow: #FED330;
+            --bg-gradient-start: #667eea;
+            --bg-gradient-end: #764ba2;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .user-progress {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stars-earned, .level-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--primary-yellow));
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .welcome-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+        }
+
+        .welcome-card {
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-card h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .welcome-card p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        #userName {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.5rem;
+            border: 3px solid var(--primary-purple);
+            border-radius: 20px;
+            font-family: 'Fredoka', sans-serif;
+            text-align: center;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        #userName:focus {
+            outline: none;
+            border-color: var(--primary-pink);
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .main-menu {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .greeting {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .greeting h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .game-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .game-card h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .demo-message {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .demo-message h2 {
+            font-size: 2rem;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+        }
+
+        .demo-message p {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .demo-message ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+            list-style: none;
+        }
+
+        .demo-message li {
+            padding: 10px;
+            margin: 10px 0;
+            background: rgba(155, 89, 182, 0.1);
+            border-radius: 10px;
+            font-size: 1.1rem;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .app-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .welcome-card {
+                padding: 30px 20px;
+            }
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon">🎓</span>
+                <h1>Learn English!</h1>
+            </div>
+            <div class="user-progress">
+                <div class="stars-earned">
+                    <span>⭐</span>
+                    <span id="totalStars">0</span>
+                </div>
+                <div class="level-badge">
+                    <span>🏆</span>
+                    <span id="userLevel">Beginner</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="welcome-section" id="welcomeSection">
+            <div class="welcome-card">
+                <h2>👋 Salom, Do'stim!</h2>
+                <p>Ismingni yozing:</p>
+                <input type="text" id="userName" placeholder="Ismingiz..." maxlength="20">
+                <button class="btn-primary" id="startBtn">
+                    <span>🚀</span>
+                    Boshlaymiz!
+                </button>
+            </div>
+        </section>
+
+        <section class="main-menu hidden" id="mainMenu">
+            <div class="greeting">
+                <h2>Salom, <span id="displayName">Do'stim</span>! 🌟</h2>
+                <p>Bugun nimani o'rganmoqchisiz?</p>
+            </div>
+
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-icon">🔤</div>
+                    <h3>Alifbo</h3>
+                    <p>Harflarni o'rganamiz</p>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">🎨</div>
+                    <h3>Ranglar</h3>
+                    <p>Ranglarni o'rganamiz</p>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">🔢</div>
+                    <h3>Raqamlar</h3>
+                    <p>1-10 gacha sanash</p>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">🎯</div>
+                    <h3>So'z Topish</h3>
+                    <p>So'zlarni moslashtir</p>
+                </div>
+            </div>
+
+            <div class="demo-message">
+                <div class="success-icon">✅</div>
+                <h2>Demo Versiya Ishladi!</h2>
+                <p><strong>Ajoyib!</strong> Agar siz bu sahifani ko'rayotgan bo'lsangiz - demak dastur ishlayapti!</p>
+                
+                <p style="margin-top: 20px;"><strong>To'liq versiyani ishlatish uchun:</strong></p>
+                <ul>
+                    <li>✅ <strong>Birinchi usul:</strong> START_SERVER.bat ni ikki marta bosing (Windows)</li>
+                    <li>✅ <strong>Ikkinchi usul:</strong> Python server ishga tushiring</li>
+                    <li>✅ <strong>Uchinchi usul:</strong> GitHub Pages'da deploy qiling</li>
+                </ul>
+
+                <p style="margin-top: 20px; font-weight: 600;">
+                    Batafsil qo'llanma: <code style="background: #f0f0f0; padding: 5px 10px; border-radius: 5px;">QANDAY_ISHLATISH.md</code>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // JavaScript shu yerda
+        let userName = '';
+        const welcomeSection = document.getElementById('welcomeSection');
+        const mainMenu = document.getElementById('mainMenu');
+        const userNameInput = document.getElementById('userName');
+        const startBtn = document.getElementById('startBtn');
+        const displayName = document.getElementById('displayName');
+
+        startBtn.addEventListener('click', () => {
+            const name = userNameInput.value.trim();
+            
+            if (name) {
+                userName = name;
+                localStorage.setItem('userName', userName);
+                displayName.textContent = userName;
+                
+                welcomeSection.classList.add('hidden');
+                mainMenu.classList.remove('hidden');
+                
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(`Welcome ${userName}! Let's learn English!`);
+                    utterance.lang = 'en-US';
+                    window.speechSynthesis.speak(utterance);
+                }
+            } else {
+                alert('Iltimos, ismingizni kiriting!');
+            }
+        });
+
+        userNameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                startBtn.click();
+            }
+        });
+
+        // LocalStorage'dan yuklash
+        const savedName = localStorage.getItem('userName');
+        if (savedName) {
+            userName = savedName;
+            displayName.textContent = userName;
+            welcomeSection.classList.add('hidden');
+            mainMenu.classList.remove('hidden');
+        }
+
+        userNameInput.focus();
+    </script>
+</body>
+</html>

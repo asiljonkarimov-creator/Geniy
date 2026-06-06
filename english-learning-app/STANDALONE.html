@@ -3,430 +3,1019 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌟 Ingliz Tili O'rganamiz! 🎮</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <title>🌟 Ingliz Tili O'rganamiz!</title>
     <style>
-        /* Barcha CSS shu yerda */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
 
-        :root {
-            --primary-blue: #4A90E2;
-            --primary-purple: #9B59B6;
-            --primary-pink: #FF6B9D;
-            --primary-orange: #FF9F43;
-            --primary-green: #26DE81;
-            --primary-yellow: #FED330;
-            --bg-gradient-start: #667eea;
-            --bg-gradient-end: #764ba2;
-            --text-dark: #2C3E50;
-            --text-light: #7F8C8D;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Fredoka', sans-serif;
-            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            font-family: 'Fredoka', 'Arial Rounded MT Bold', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
         }
 
-        .main-container {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        .app-header {
+        /* HEADER */
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.95);
+            background: white;
             padding: 15px 30px;
             border-radius: 20px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-icon {
-            font-size: 2.5rem;
-            animation: bounce 2s infinite;
-        }
-
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { font-size: 2.2rem; animation: bounce 2s infinite; }
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
-
         .logo h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 1.8rem; font-weight: 700;
+            background: linear-gradient(135deg, #9B59B6, #FF6B9D);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .user-progress {
-            display: flex;
-            gap: 20px;
-        }
-
-        .stars-earned, .level-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .stats { display: flex; gap: 15px; }
+        .stat-box {
+            display: flex; align-items: center; gap: 8px;
             padding: 10px 20px;
-            background: linear-gradient(135deg, var(--primary-orange), var(--primary-yellow));
             border-radius: 50px;
-            color: white;
-            font-weight: 600;
-            font-size: 1.2rem;
+            font-weight: 700; font-size: 1.1rem; color: white;
         }
+        .stat-stars { background: linear-gradient(135deg, #FF9F43, #FED330); }
+        .stat-level { background: linear-gradient(135deg, #4A90E2, #9B59B6); }
 
-        .welcome-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 60vh;
+        /* WELCOME */
+        #screen-welcome {
+            display: flex; justify-content: center; align-items: center;
+            min-height: 70vh;
         }
 
         .welcome-card {
-            background: white;
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            max-width: 500px;
-            animation: slideUp 0.5s ease;
+            background: white; padding: 50px 40px;
+            border-radius: 30px; text-align: center;
+            max-width: 450px; width: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: slideUp 0.4s ease;
         }
 
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity:0; transform: translateY(30px); }
+            to   { opacity:1; transform: translateY(0); }
         }
 
-        .welcome-card h2 {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
+        .welcome-emoji { font-size: 5rem; margin-bottom: 15px; animation: bounce 2s infinite; }
+        .welcome-card h2 { font-size: 2.2rem; color: #2C3E50; margin-bottom: 10px; }
+        .welcome-card p  { font-size: 1.2rem; color: #7F8C8D; margin-bottom: 20px; }
 
-        .welcome-card p {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            margin-bottom: 25px;
+        .input-name {
+            width: 100%; padding: 18px;
+            font-size: 1.4rem; font-family: inherit;
+            border: 3px solid #9B59B6; border-radius: 15px;
+            text-align: center; margin-bottom: 20px;
+            transition: all 0.3s;
         }
+        .input-name:focus { outline: none; border-color: #FF6B9D; transform: scale(1.03); }
 
-        #userName {
-            width: 100%;
-            padding: 20px;
-            font-size: 1.5rem;
-            border: 3px solid var(--primary-purple);
-            border-radius: 20px;
-            font-family: 'Fredoka', sans-serif;
-            text-align: center;
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
+        /* BUTTONS */
+        .btn {
+            border: none; cursor: pointer; font-family: inherit;
+            font-weight: 700; border-radius: 20px;
+            transition: all 0.25s; display: inline-flex;
+            align-items: center; gap: 10px;
         }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        .btn:active { transform: scale(0.97); }
 
-        #userName:focus {
-            outline: none;
-            border-color: var(--primary-pink);
-            transform: scale(1.05);
+        .btn-start {
+            background: linear-gradient(135deg, #9B59B6, #FF6B9D);
+            color: white; padding: 18px 50px; font-size: 1.4rem;
+            width: 100%; justify-content: center;
         }
+        .btn-game {
+            background: linear-gradient(135deg, #4A90E2, #9B59B6);
+            color: white; padding: 14px 30px; font-size: 1.1rem;
+            width: 100%; justify-content: center; margin-top: 10px;
+        }
+        .btn-back {
+            background: #4A90E2; color: white;
+            padding: 12px 25px; font-size: 1rem;
+        }
+        .btn-sound {
+            background: white; color: #667eea;
+            padding: 12px 30px; font-size: 1.1rem;
+            border: 2px solid #667eea; margin-top: 15px;
+        }
+        .btn-sound:hover { background: #667eea; color: white; }
+        .btn-secondary {
+            background: #ecf0f1; color: #2C3E50;
+            padding: 14px 28px; font-size: 1.1rem;
+        }
+        .btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
-            color: white;
-            border: none;
-            padding: 20px 50px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            border-radius: 30px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            font-family: 'Fredoka', sans-serif;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .main-menu {
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .greeting {
-            text-align: center;
-            margin-bottom: 40px;
-            color: white;
-        }
-
-        .greeting h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-        }
+        /* MENU */
+        #screen-menu { display: none; }
+        .greeting { text-align: center; color: white; margin-bottom: 30px; }
+        .greeting h2 { font-size: 2.2rem; text-shadow: 1px 1px 8px rgba(0,0,0,0.2); }
+        .greeting p  { font-size: 1.3rem; opacity: 0.9; }
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
         }
 
         .game-card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            background: white; padding: 28px 20px;
+            border-radius: 20px; text-align: center;
+            cursor: pointer; transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative; overflow: hidden;
+        }
+        .game-card::before {
+            content:''; position: absolute;
+            top:0; left:0; right:0; height: 5px;
+            background: linear-gradient(90deg, #4A90E2, #9B59B6, #FF6B9D);
+        }
+        .game-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,0,0,0.2); }
+
+        .game-card .icon { font-size: 3.5rem; margin-bottom: 12px; animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+        .game-card h3 { font-size: 1.6rem; color: #2C3E50; margin-bottom: 8px; }
+        .game-card p  { font-size: 1rem; color: #7F8C8D; margin-bottom: 5px; }
+
+        .prog-bar { background: #ecf0f1; height: 10px; border-radius: 10px; overflow: hidden; margin: 10px 0 5px; }
+        .prog-fill { height: 100%; background: linear-gradient(90deg, #26DE81, #4A90E2); border-radius: 10px; transition: width 0.5s; }
+        .prog-text { font-size: 0.85rem; color: #7F8C8D; }
+
+        /* GAME SCREEN */
+        #screen-game { display: none; }
+        .game-header {
+            display: flex; justify-content: space-between; align-items: center;
+            background: white; padding: 15px 25px; border-radius: 20px;
+            margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .game-header h2 { font-size: 1.6rem; color: #2C3E50; }
+        .score-box {
+            background: linear-gradient(135deg, #FF9F43, #FED330);
+            color: white; padding: 10px 20px;
+            border-radius: 15px; font-size: 1.2rem; font-weight: 700;
+        }
+        .game-body {
+            background: white; padding: 35px; border-radius: 20px;
+            min-height: 450px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .game-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        /* ===== ALPHABET ===== */
+        .alpha-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 40px; border-radius: 25px;
+            text-align: center; margin-bottom: 25px;
+            animation: slideUp 0.4s ease;
+        }
+        .alpha-letters { display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 20px; }
+        .big-letter { font-size: 9rem; font-weight: 700; color: white; text-shadow: 3px 3px 12px rgba(0,0,0,0.3); animation: bounce 1.5s infinite; }
+        .small-letter { font-size: 5.5rem; font-weight: 600; color: rgba(255,255,255,0.8); }
+        .letter-emoji { font-size: 7rem; margin: 15px 0; animation: float 2.5s ease-in-out infinite; }
+        .letter-word { font-size: 2.8rem; color: white; font-weight: 700; margin-bottom: 5px; }
+        .letter-sub  { font-size: 1.3rem; color: rgba(255,255,255,0.85); }
+
+        .alpha-nav { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }
+
+        .alpha-grid {
+            display: grid; grid-template-columns: repeat(13, 1fr);
+            gap: 6px; margin-top: 20px;
+        }
+        .alpha-mini {
+            background: white; border-radius: 8px;
+            padding: 8px 4px; text-align: center;
+            font-size: 1rem; font-weight: 700;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .alpha-mini:hover { transform: scale(1.2); background: #e8d5ff; }
+        .alpha-mini.active { background: linear-gradient(135deg,#FF6B9D,#FF9F43); color: white; transform: scale(1.25); }
+        .alpha-mini.done { background: linear-gradient(135deg,#26DE81,#4A90E2); color: white; }
+
+        /* ===== QUIZ ===== */
+        .quiz-wrap { text-align: center; }
+        .quiz-emoji { font-size: 8rem; margin: 20px 0; animation: bounce 1.5s infinite; }
+        .quiz-word  { font-size: 3rem; font-weight: 700; color: #2C3E50; margin-bottom: 30px; }
+        .quiz-opts  { display: grid; grid-template-columns: repeat(2,1fr); gap: 15px; max-width: 600px; margin: 0 auto 25px; }
+        .quiz-opt {
+            background: linear-gradient(135deg,#4A90E2,#9B59B6);
+            color: white; border: none; padding: 35px 20px;
+            font-size: 2.8rem; font-weight: 700; border-radius: 18px;
+            cursor: pointer; transition: all 0.25s; font-family: inherit;
+        }
+        .quiz-opt:hover { transform: scale(1.06); box-shadow: 0 6px 25px rgba(0,0,0,0.2); }
+        .quiz-opt.correct { background: linear-gradient(135deg,#26DE81,#4A90E2); animation: pop 0.4s ease; }
+        .quiz-opt.wrong   { background: linear-gradient(135deg,#ee5a6f,#f29263); animation: shake 0.4s ease; }
+        @keyframes pop   { 0%,100%{transform:scale(1)} 50%{transform:scale(1.12)} }
+        @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+
+        /* ===== COLORS ===== */
+        .color-circle {
+            width: 260px; height: 260px; border-radius: 50%;
+            margin: 20px auto; display: flex; justify-content: center;
+            align-items: center; font-size: 6.5rem;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+            animation: colorPulse 2s infinite;
+        }
+        @keyframes colorPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+        .color-name { font-size: 3rem; font-weight: 700; color: #2C3E50; text-align: center; margin: 15px 0; }
+        .color-examples { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
+        .color-ex {
+            background: #f8f9fa; padding: 14px 18px;
+            border-radius: 15px; text-align: center;
+            font-size: 0.95rem; font-weight: 600; color: #2C3E50;
+            transition: all 0.2s; cursor: default;
+        }
+        .color-ex:hover { transform: translateY(-4px); }
+        .color-ex span { font-size: 2rem; display: block; margin-bottom: 5px; }
+
+        .color-quiz-opts { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; max-width: 560px; margin: 20px auto; }
+        .color-opt {
+            border: 4px solid; padding: 16px;
+            border-radius: 18px; cursor: pointer;
+            display: flex; align-items: center; gap: 14px;
+            background: white; transition: all 0.25s; font-family: inherit;
+        }
+        .color-opt:hover { transform: scale(1.04); box-shadow: 0 4px 18px rgba(0,0,0,0.15); }
+        .color-dot { width: 48px; height: 48px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.1); flex-shrink: 0; }
+        .color-opt-name { font-size: 1.4rem; font-weight: 700; color: #2C3E50; }
+        .color-opt.correct { background: #26DE81; border-color: #26DE81; }
+        .color-opt.correct .color-opt-name { color: white; }
+        .color-opt.wrong   { background: #ee5a6f; border-color: #ee5a6f; animation: shake 0.4s ease; }
+        .color-opt.wrong   .color-opt-name { color: white; }
+
+        /* ===== NUMBERS ===== */
+        .num-card {
+            background: linear-gradient(135deg, #4A90E2, #9B59B6);
+            padding: 40px; border-radius: 25px;
+            text-align: center; margin-bottom: 20px;
+            animation: slideUp 0.4s ease;
+        }
+        .num-display { display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 15px; }
+        .big-num   { font-size: 9rem; font-weight: 700; color: white; text-shadow: 3px 3px 12px rgba(0,0,0,0.3); animation: bounce 1.5s infinite; }
+        .num-emoji { font-size: 6rem; animation: float 2.5s ease-in-out infinite; }
+        .num-word  { font-size: 3.5rem; font-weight: 700; color: white; }
+
+        .count-items { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; padding: 25px; background: #f8f9fa; border-radius: 20px; margin: 20px 0; }
+        .count-item  { font-size: 2.8rem; animation: pop 0.3s ease; }
+
+        .num-grid { display: grid; grid-template-columns: repeat(10,1fr); gap: 8px; margin-top: 20px; }
+        .num-mini {
+            background: white; border-radius: 10px; padding: 12px 4px;
+            text-align: center; font-size: 1.3rem; font-weight: 700;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .num-mini:hover  { transform: scale(1.18); background: #d5e8ff; }
+        .num-mini.active { background: linear-gradient(135deg,#FF6B9D,#FF9F43); color: white; transform: scale(1.25); }
+        .num-mini.done   { background: linear-gradient(135deg,#26DE81,#4A90E2); color: white; }
+
+        .num-quiz-opts { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; max-width: 600px; margin: 25px auto; }
+        .num-opt {
+            background: linear-gradient(135deg,#4A90E2,#9B59B6);
+            color: white; border: none; padding: 28px 10px;
+            font-size: 2.5rem; font-weight: 700; border-radius: 16px;
+            cursor: pointer; transition: all 0.25s; font-family: inherit;
+        }
+        .num-opt:hover { transform: scale(1.08); box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+        .num-opt.correct { background: linear-gradient(135deg,#26DE81,#4A90E2); animation: pop 0.4s ease; }
+        .num-opt.wrong   { background: linear-gradient(135deg,#ee5a6f,#f29263); animation: shake 0.4s ease; }
+
+        /* ===== MATCHING ===== */
+        .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .match-col  { display: flex; flex-direction: column; gap: 12px; }
+        .match-item {
+            background: white; border: 3px solid #e0e0e0;
+            padding: 18px; border-radius: 18px;
+            cursor: pointer; text-align: center;
+            transition: all 0.25s; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .match-item:hover:not(.matched) { transform: translateY(-4px) scale(1.03); border-color: #9B59B6; box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+        .match-item.selected { border-color: #FF6B9D; background: #fff0f6; transform: scale(1.04); }
+        .match-item.matched  { background: linear-gradient(135deg,#26DE81,#4A90E2); border-color: #26DE81; opacity: 0.75; pointer-events: none; animation: pop 0.4s ease; }
+        .match-item.matched span, .match-item.matched p { color: white !important; }
+        .match-emoji { font-size: 3rem; }
+        .match-word  { font-size: 1.5rem; font-weight: 700; color: #2C3E50; }
+
+        .match-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 15px 20px; background: linear-gradient(135deg,#667eea,#764ba2); border-radius: 15px; color: white; font-size: 1.1rem; font-weight: 600; }
+
+        /* COMPLETE */
+        .complete-box { text-align: center; padding: 30px; }
+        .complete-box .icon { font-size: 7rem; animation: pop 0.6s ease; }
+        .complete-box h2 { font-size: 3rem; color: #9B59B6; margin: 15px 0; }
+        .complete-box p  { font-size: 1.4rem; color: #7F8C8D; margin-bottom: 20px; }
+        .final-score { background: linear-gradient(135deg,#FF9F43,#FED330); padding: 25px; border-radius: 18px; margin: 20px 0; }
+        .final-score span { font-size: 2.5rem; font-weight: 700; color: white; }
+        .complete-btns { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+
+        /* MODAL - REWARD */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+            display: none; justify-content: center; align-items: center; z-index: 999;
+        }
+        .modal-overlay.show { display: flex; }
+        .modal-box {
+            background: white; padding: 50px 40px; border-radius: 30px;
+            text-align: center; max-width: 420px; width: 90%;
+            animation: scaleUp 0.3s ease;
+        }
+        @keyframes scaleUp { from{transform:scale(0.7);opacity:0} to{transform:scale(1);opacity:1} }
+        .modal-box .icon { font-size: 5rem; animation: bounce 1s infinite; }
+        .modal-box h2    { font-size: 2.5rem; color: #9B59B6; margin: 15px 0; }
+        .modal-box p     { font-size: 1.3rem; color: #7F8C8D; margin-bottom: 20px; }
+        .reward-stars    { font-size: 3.5rem; font-weight: 700; color: #FF9F43; margin: 15px 0; }
+
+        /* CONFETTI */
+        .confetti-piece {
+            position: fixed; pointer-events: none; z-index: 9999;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            0%   { transform: translateY(-60px) rotate(0deg); opacity:1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity:0; }
         }
 
-        .game-icon {
-            font-size: 4rem;
-            margin-bottom: 15px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .game-card h3 {
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-
-        .game-card p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-
-        .demo-message {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .demo-message h2 {
-            font-size: 2rem;
-            color: var(--primary-purple);
-            margin-bottom: 20px;
-        }
-
-        .demo-message p {
-            font-size: 1.3rem;
-            color: var(--text-dark);
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .demo-message ul {
-            text-align: left;
-            max-width: 600px;
-            margin: 20px auto;
-            list-style: none;
-        }
-
-        .demo-message li {
-            padding: 10px;
-            margin: 10px 0;
-            background: rgba(155, 89, 182, 0.1);
-            border-radius: 10px;
-            font-size: 1.1rem;
-        }
-
-        .success-icon {
-            font-size: 5rem;
-            margin: 20px 0;
-        }
-
-        @media (max-width: 768px) {
-            .app-header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .welcome-card {
-                padding: 30px 20px;
-            }
-            .games-grid {
-                grid-template-columns: 1fr;
-            }
+        /* RESPONSIVE */
+        @media(max-width:700px){
+            .alpha-grid { grid-template-columns: repeat(7,1fr); }
+            .quiz-opts, .color-quiz-opts, .num-quiz-opts { grid-template-columns: 1fr; }
+            .num-grid   { grid-template-columns: repeat(5,1fr); }
+            .match-grid { grid-template-columns: 1fr; }
+            .header     { flex-direction: column; gap: 12px; }
+            .big-letter, .big-num { font-size: 6rem; }
+            .letter-emoji, .num-emoji { font-size: 5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <header class="app-header">
-            <div class="logo">
-                <span class="logo-icon">🎓</span>
-                <h1>Learn English!</h1>
-            </div>
-            <div class="user-progress">
-                <div class="stars-earned">
-                    <span>⭐</span>
-                    <span id="totalStars">0</span>
-                </div>
-                <div class="level-badge">
-                    <span>🏆</span>
-                    <span id="userLevel">Beginner</span>
-                </div>
-            </div>
-        </header>
 
-        <section class="welcome-section" id="welcomeSection">
-            <div class="welcome-card">
-                <h2>👋 Salom, Do'stim!</h2>
-                <p>Ismingni yozing:</p>
-                <input type="text" id="userName" placeholder="Ismingiz..." maxlength="20">
-                <button class="btn-primary" id="startBtn">
-                    <span>🚀</span>
-                    Boshlaymiz!
-                </button>
-            </div>
-        </section>
+<div class="container">
 
-        <section class="main-menu hidden" id="mainMenu">
-            <div class="greeting">
-                <h2>Salom, <span id="displayName">Do'stim</span>! 🌟</h2>
-                <p>Bugun nimani o'rganmoqchisiz?</p>
-            </div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">🎓</span>
+            <h1>Learn English!</h1>
+        </div>
+        <div class="stats">
+            <div class="stat-box stat-stars">⭐ <span id="totalStars">0</span></div>
+            <div class="stat-box stat-level">🏆 <span id="userLevel">Beginner</span></div>
+        </div>
+    </header>
 
-            <div class="games-grid">
-                <div class="game-card">
-                    <div class="game-icon">🔤</div>
-                    <h3>Alifbo</h3>
-                    <p>Harflarni o'rganamiz</p>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-icon">🎨</div>
-                    <h3>Ranglar</h3>
-                    <p>Ranglarni o'rganamiz</p>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-icon">🔢</div>
-                    <h3>Raqamlar</h3>
-                    <p>1-10 gacha sanash</p>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-icon">🎯</div>
-                    <h3>So'z Topish</h3>
-                    <p>So'zlarni moslashtir</p>
-                </div>
-            </div>
-
-            <div class="demo-message">
-                <div class="success-icon">✅</div>
-                <h2>Demo Versiya Ishladi!</h2>
-                <p><strong>Ajoyib!</strong> Agar siz bu sahifani ko'rayotgan bo'lsangiz - demak dastur ishlayapti!</p>
-                
-                <p style="margin-top: 20px;"><strong>To'liq versiyani ishlatish uchun:</strong></p>
-                <ul>
-                    <li>✅ <strong>Birinchi usul:</strong> START_SERVER.bat ni ikki marta bosing (Windows)</li>
-                    <li>✅ <strong>Ikkinchi usul:</strong> Python server ishga tushiring</li>
-                    <li>✅ <strong>Uchinchi usul:</strong> GitHub Pages'da deploy qiling</li>
-                </ul>
-
-                <p style="margin-top: 20px; font-weight: 600;">
-                    Batafsil qo'llanma: <code style="background: #f0f0f0; padding: 5px 10px; border-radius: 5px;">QANDAY_ISHLATISH.md</code>
-                </p>
-            </div>
-        </section>
+    <!-- WELCOME -->
+    <div id="screen-welcome">
+        <div class="welcome-card">
+            <div class="welcome-emoji">👋</div>
+            <h2>Salom, Do'stim!</h2>
+            <p>Ismingni yozing:</p>
+            <input class="input-name" id="inputName" type="text" placeholder="Ismingiz..." maxlength="20">
+            <button class="btn btn-start" id="btnStart">🚀 Boshlaymiz!</button>
+        </div>
     </div>
 
-    <script>
-        // JavaScript shu yerda
-        let userName = '';
-        const welcomeSection = document.getElementById('welcomeSection');
-        const mainMenu = document.getElementById('mainMenu');
-        const userNameInput = document.getElementById('userName');
-        const startBtn = document.getElementById('startBtn');
-        const displayName = document.getElementById('displayName');
+    <!-- MENU -->
+    <div id="screen-menu">
+        <div class="greeting">
+            <h2>Salom, <span id="displayName">Do'stim</span>! 🌟</h2>
+            <p>Bugun nimani o'rganmoqchisiz?</p>
+        </div>
+        <div class="games-grid">
+            <div class="game-card" onclick="startGame('alphabet')">
+                <div class="icon">🔤</div>
+                <h3>Alifbo</h3>
+                <p>Harflarni o'rganamiz</p>
+                <div class="prog-bar"><div class="prog-fill" id="prog-alphabet" style="width:0%"></div></div>
+                <span class="prog-text" id="progt-alphabet">0 / 26</span>
+                <button class="btn btn-game">O'ynash ▶</button>
+            </div>
+            <div class="game-card" onclick="startGame('colors')">
+                <div class="icon">🎨</div>
+                <h3>Ranglar</h3>
+                <p>Ranglarni o'rganamiz</p>
+                <div class="prog-bar"><div class="prog-fill" id="prog-colors" style="width:0%"></div></div>
+                <span class="prog-text" id="progt-colors">0 / 10</span>
+                <button class="btn btn-game">O'ynash ▶</button>
+            </div>
+            <div class="game-card" onclick="startGame('numbers')">
+                <div class="icon">🔢</div>
+                <h3>Raqamlar</h3>
+                <p>1-10 gacha sanash</p>
+                <div class="prog-bar"><div class="prog-fill" id="prog-numbers" style="width:0%"></div></div>
+                <span class="prog-text" id="progt-numbers">0 / 10</span>
+                <button class="btn btn-game">O'ynash ▶</button>
+            </div>
+            <div class="game-card" onclick="startGame('matching')">
+                <div class="icon">🎯</div>
+                <h3>So'z Topish</h3>
+                <p>Rasm va so'zni moslashtir</p>
+                <div class="prog-bar"><div class="prog-fill" id="prog-matching" style="width:0%"></div></div>
+                <span class="prog-text" id="progt-matching">0 / 20</span>
+                <button class="btn btn-game">O'ynash ▶</button>
+            </div>
+        </div>
+    </div>
 
-        startBtn.addEventListener('click', () => {
-            const name = userNameInput.value.trim();
-            
-            if (name) {
-                userName = name;
-                localStorage.setItem('userName', userName);
-                displayName.textContent = userName;
-                
-                welcomeSection.classList.add('hidden');
-                mainMenu.classList.remove('hidden');
-                
-                if ('speechSynthesis' in window) {
-                    const utterance = new SpeechSynthesisUtterance(`Welcome ${userName}! Let's learn English!`);
-                    utterance.lang = 'en-US';
-                    window.speechSynthesis.speak(utterance);
+    <!-- GAME SCREEN -->
+    <div id="screen-game">
+        <div class="game-header">
+            <button class="btn btn-back" onclick="goBack()">← Orqaga</button>
+            <h2 id="gameTitle">O'yin</h2>
+            <div class="score-box">⭐ <span id="gameScore">0</span></div>
+        </div>
+        <div class="game-body" id="gameBody"></div>
+    </div>
+
+</div>
+
+<!-- REWARD MODAL -->
+<div class="modal-overlay" id="rewardModal">
+    <div class="modal-box">
+        <div class="icon">🎉</div>
+        <h2>Ajoyib!</h2>
+        <p id="rewardMsg">Siz yulduz topding!</p>
+        <div class="reward-stars" id="rewardStars">+3 ⭐</div>
+        <button class="btn btn-start" style="margin-top:10px" onclick="closeModal()">Davom etish 🚀</button>
+    </div>
+</div>
+
+<script>
+// ===================== DATA =====================
+
+const ALPHABET = [
+    {L:'A',w:'Apple',e:'🍎'}, {L:'B',w:'Ball',e:'⚽'}, {L:'C',w:'Cat',e:'🐱'},
+    {L:'D',w:'Dog',e:'🐶'},   {L:'E',w:'Elephant',e:'🐘'},{L:'F',w:'Fish',e:'🐟'},
+    {L:'G',w:'Grapes',e:'🍇'},{L:'H',w:'House',e:'🏠'},  {L:'I',w:'Ice Cream',e:'🍦'},
+    {L:'J',w:'Juice',e:'🧃'}, {L:'K',w:'Kite',e:'🪁'},   {L:'L',w:'Lion',e:'🦁'},
+    {L:'M',w:'Monkey',e:'🐵'},{L:'N',w:'Nose',e:'👃'},   {L:'O',w:'Orange',e:'🍊'},
+    {L:'P',w:'Pizza',e:'🍕'}, {L:'Q',w:'Queen',e:'👸'},  {L:'R',w:'Rabbit',e:'🐰'},
+    {L:'S',w:'Sun',e:'☀️'},   {L:'T',w:'Tree',e:'🌳'},   {L:'U',w:'Umbrella',e:'☂️'},
+    {L:'V',w:'Van',e:'🚐'},   {L:'W',w:'Watch',e:'⌚'},  {L:'X',w:'Xylophone',e:'🎵'},
+    {L:'Y',w:'Yo-yo',e:'🪀'}, {L:'Z',w:'Zebra',e:'🦓'}
+];
+
+const COLORS = [
+    {n:'Red',   h:'#e74c3c', e:'❤️',  ex:[['🍎','Apple'],['🌹','Rose'],['🍓','Strawberry'],['🚒','Fire Truck']]},
+    {n:'Blue',  h:'#3498db', e:'💙',  ex:[['🌊','Ocean'],['🫐','Blueberry'],['🦋','Butterfly'],['☀️','Sky']]},
+    {n:'Yellow',h:'#f1c40f', e:'💛',  ex:[['☀️','Sun'],['🍌','Banana'],['⭐','Star'],['🌼','Flower']]},
+    {n:'Green', h:'#2ecc71', e:'💚',  ex:[['🌳','Tree'],['🐸','Frog'],['🍏','Apple'],['🌿','Leaf']]},
+    {n:'Orange',h:'#e67e22', e:'🧡',  ex:[['🍊','Orange'],['🎃','Pumpkin'],['🦊','Fox'],['🔥','Fire']]},
+    {n:'Purple',h:'#9b59b6', e:'💜',  ex:[['🍇','Grapes'],['🦄','Unicorn'],['🍆','Eggplant'],['🔮','Magic']]},
+    {n:'Pink',  h:'#ff6b9d', e:'💗',  ex:[['🌸','Flower'],['🐷','Pig'],['🦩','Flamingo'],['🎀','Ribbon']]},
+    {n:'Brown', h:'#8B4513', e:'🤎',  ex:[['🐻','Bear'],['🍫','Chocolate'],['🌰','Nut'],['🪵','Wood']]},
+    {n:'Black', h:'#2c3e50', e:'🖤',  ex:[['🐈‍⬛','Black Cat'],['🌑','Dark Moon'],['🦇','Bat'],['🕷️','Spider']]},
+    {n:'White', h:'#bdc3c7', e:'🤍',  ex:[['☁️','Cloud'],['❄️','Snow'],['🐑','Sheep'],['🕊️','Dove']]}
+];
+
+const NUMBERS = [
+    {n:1,w:'One',  e:'1️⃣'}, {n:2,w:'Two',  e:'2️⃣'}, {n:3,w:'Three',e:'3️⃣'},
+    {n:4,w:'Four', e:'4️⃣'}, {n:5,w:'Five', e:'5️⃣'}, {n:6,w:'Six',  e:'6️⃣'},
+    {n:7,w:'Seven',e:'7️⃣'}, {n:8,w:'Eight',e:'8️⃣'}, {n:9,w:'Nine', e:'9️⃣'},
+    {n:10,w:'Ten', e:'🔟'}
+];
+
+const MATCH_WORDS = [
+    {w:'Apple',e:'🍎'},{w:'Banana',e:'🍌'},{w:'Cat',e:'🐱'},{w:'Dog',e:'🐶'},
+    {w:'Lion',e:'🦁'},{w:'Fish',e:'🐟'},{w:'Car',e:'🚗'},{w:'Sun',e:'☀️'},
+    {w:'Tree',e:'🌳'},{w:'House',e:'🏠'},{w:'Ball',e:'⚽'},{w:'Star',e:'⭐'},
+    {w:'Rabbit',e:'🐰'},{w:'Flower',e:'🌸'},{w:'Boat',e:'⛵'},
+    {w:'Plane',e:'✈️'},{w:'Moon',e:'🌙'},{w:'Bird',e:'🐦'},
+    {w:'Orange',e:'🍊'},{w:'Elephant',e:'🐘'}
+];
+
+// ===================== STATE =====================
+let state = {
+    user: '', stars: 0, level: 'Beginner',
+    progress: {alphabet:0, colors:0, numbers:0, matching:0},
+    curGame: '', gameScore: 0,
+    alphaIdx: 0, alphaMode: 'learn', alphaQuizIdx: 0,
+    colorIdx: 0, colorMode: 'learn', colorQuizIdx: 0,
+    numIdx: 0, numMode: 'learn', numQuizIdx: 0,
+    matchPairs: [], matchMatched: [], matchSelEmoji: null, matchSelWord: null
+};
+
+// ===================== UTILS =====================
+function say(text) {
+    if (!window.speechSynthesis) return;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US'; u.rate = 0.85; u.pitch = 1.2;
+    speechSynthesis.speak(u);
+}
+function sayPraise() {
+    const p = ['Great job!','Excellent!','Well done!','Fantastic!','Amazing!','Perfect!'];
+    say(p[Math.floor(Math.random()*p.length)]);
+}
+function shuffle(arr) { return [...arr].sort(()=>Math.random()-0.5); }
+function randOpts(correct, pool, key, count=4) {
+    const opts = [correct];
+    const filtered = pool.filter(x => x[key] !== correct);
+    const sh = shuffle(filtered);
+    for (let i=0; opts.length < count && i < sh.length; i++) opts.push(sh[i][key]);
+    return shuffle(opts);
+}
+
+function save() {
+    localStorage.setItem('eng_state', JSON.stringify({
+        user: state.user, stars: state.stars, level: state.level, progress: state.progress
+    }));
+}
+function load() {
+    try {
+        const d = JSON.parse(localStorage.getItem('eng_state') || '{}');
+        if (d.user) { state.user=d.user; state.stars=d.stars||0; state.level=d.level||'Beginner'; state.progress=d.progress||state.progress; }
+    } catch(e){}
+}
+
+function addStars(n) {
+    state.stars += n;
+    const levels = [{n:'Beginner',s:0},{n:'Learner',s:30},{n:'Student',s:80},{n:'Expert',s:150},{n:'Master',s:300}];
+    for (let i=levels.length-1;i>=0;i--) { if(state.stars>=levels[i].s){state.level=levels[i].n;break;} }
+    document.getElementById('totalStars').textContent = state.stars;
+    document.getElementById('userLevel').textContent  = state.level;
+    save();
+    updateMenuProgress();
+}
+
+function updateMenuProgress() {
+    const max = {alphabet:26,colors:10,numbers:10,matching:20};
+    for (const k in max) {
+        const v = state.progress[k], m = max[k];
+        const pf = document.getElementById('prog-'+k);
+        const pt = document.getElementById('progt-'+k);
+        if (pf) pf.style.width = (v/m*100)+'%';
+        if (pt) pt.textContent = v+' / '+m;
+    }
+}
+
+function showReward(stars, msg) {
+    document.getElementById('rewardMsg').textContent   = msg;
+    document.getElementById('rewardStars').textContent = '+'+stars+' ⭐';
+    document.getElementById('rewardModal').classList.add('show');
+    confetti();
+}
+function closeModal() { document.getElementById('rewardModal').classList.remove('show'); }
+
+function confetti() {
+    const ems = ['🎉','🎊','✨','⭐','🌟','💫','🎈'];
+    for (let i=0;i<25;i++) {
+        setTimeout(()=>{
+            const el=document.createElement('div');
+            el.className='confetti-piece';
+            el.textContent=ems[Math.floor(Math.random()*ems.length)];
+            el.style.cssText=`left:${Math.random()*100}%;top:-40px;font-size:${1+Math.random()*1.5}rem;animation-duration:${2+Math.random()*2}s`;
+            document.body.appendChild(el);
+            setTimeout(()=>el.remove(),4000);
+        },i*60);
+    }
+}
+
+// ===================== NAVIGATION =====================
+function showScreen(id) {
+    ['screen-welcome','screen-menu','screen-game'].forEach(s=>{
+        document.getElementById(s).style.display='none';
+    });
+    document.getElementById(id).style.display='block';
+}
+
+function goBack() {
+    speechSynthesis.cancel();
+    showScreen('screen-menu');
+}
+
+function startGame(name) {
+    state.curGame = name;
+    state.gameScore = 0;
+    document.getElementById('gameScore').textContent = '0';
+    const titles = {alphabet:'🔤 Alifbo', colors:'🎨 Ranglar', numbers:'🔢 Raqamlar', matching:'🎯 So\'z Topish'};
+    document.getElementById('gameTitle').textContent = titles[name]||name;
+    showScreen('screen-game');
+    if (name==='alphabet') renderAlpha();
+    else if (name==='colors')   renderColor();
+    else if (name==='numbers')  renderNum();
+    else if (name==='matching') renderMatch();
+}
+
+// ===================== WELCOME =====================
+document.getElementById('btnStart').addEventListener('click', ()=>{
+    const nm = document.getElementById('inputName').value.trim();
+    if (!nm) { document.getElementById('inputName').style.borderColor='#ee5a6f'; return; }
+    state.user = nm;
+    save();
+    document.getElementById('displayName').textContent = nm;
+    showScreen('screen-menu');
+    updateMenuProgress();
+    say('Welcome '+nm+'! Let\'s learn English!');
+});
+document.getElementById('inputName').addEventListener('keypress', e=>{ if(e.key==='Enter') document.getElementById('btnStart').click(); });
+
+// ===================== ALPHABET =====================
+function renderAlpha() {
+    if (state.alphaMode==='learn') renderAlphaLearn();
+    else renderAlphaQuiz();
+}
+
+function renderAlphaLearn() {
+    const c = ALPHABET[state.alphaIdx];
+    const gb = document.getElementById('gameBody');
+    gb.innerHTML = `
+        <div class="alpha-card">
+            <div class="alpha-letters">
+                <div class="big-letter">${c.L}</div>
+                <div class="small-letter">${c.L.toLowerCase()}</div>
+            </div>
+            <div class="letter-emoji">${c.e}</div>
+            <div class="letter-word">${c.w}</div>
+            <div class="letter-sub">"${c.L}" is for <b>${c.w}</b></div>
+            <button class="btn btn-sound" onclick="say('${c.L}... ${c.w}')">🔊 Eshitish</button>
+        </div>
+        <div class="alpha-nav">
+            <button class="btn btn-secondary" onclick="alphaPrev()" ${state.alphaIdx===0?'disabled':''}>← Oldingi</button>
+            ${state.alphaIdx < ALPHABET.length-1
+                ? `<button class="btn btn-start" onclick="alphaNext()">Keyingi →</button>`
+                : `<button class="btn btn-start" onclick="startAlphaQuiz()">Test Boshlash 🎯</button>`
+            }
+        </div>
+        <div class="alpha-grid">
+            ${ALPHABET.map((lt,i)=>`
+                <div class="alpha-mini ${i===state.alphaIdx?'active':''} ${i<state.alphaIdx?'done':''}"
+                     onclick="alphaJump(${i})">${lt.L}</div>
+            `).join('')}
+        </div>
+    `;
+    say(c.L + ' ' + c.w);
+}
+
+function alphaNext() {
+    if (state.alphaIdx < ALPHABET.length-1) {
+        state.alphaIdx++;
+        state.progress.alphabet = Math.max(state.progress.alphabet, state.alphaIdx);
+        save(); updateMenuProgress();
+        renderAlphaLearn();
+    }
+}
+function alphaPrev() { if(state.alphaIdx>0){state.alphaIdx--;renderAlphaLearn();} }
+function alphaJump(i) { state.alphaIdx=i; renderAlphaLearn(); }
+function startAlphaQuiz() { state.alphaMode='quiz'; state.alphaQuizIdx=0; state.gameScore=0; renderAlphaQuiz(); }
+
+function renderAlphaQuiz() {
+    const items = shuffle(ALPHABET);
+    const c = items[state.alphaQuizIdx % items.length];
+    const opts = randOpts(c.L, ALPHABET, 'L');
+    document.getElementById('gameBody').innerHTML = `
+        <div class="quiz-wrap">
+            <h3 style="font-size:1.8rem;color:#2C3E50;margin-bottom:10px">Qaysi harf?</h3>
+            <div class="quiz-emoji">${c.e}</div>
+            <div class="quiz-word">${c.w}</div>
+            <div class="quiz-opts">
+                ${opts.map(o=>`<button class="btn quiz-opt" onclick="checkAlpha('${o}','${c.L}')">${o}</button>`).join('')}
+            </div>
+            <button class="btn btn-secondary" onclick="state.alphaMode='learn';renderAlpha()">📚 O'rganishga qaytish</button>
+        </div>`;
+}
+
+function checkAlpha(sel, correct) {
+    const btns = document.querySelectorAll('.quiz-opt');
+    btns.forEach(b=>{ if(b.textContent.trim()===sel) b.classList.add(sel===correct?'correct':'wrong'); });
+    if (sel===correct) {
+        state.gameScore+=10; document.getElementById('gameScore').textContent=state.gameScore;
+        sayPraise(); addStars(1);
+        setTimeout(()=>{ state.alphaQuizIdx++; if(state.alphaQuizIdx>=ALPHABET.length){showAlphaComplete();}else{renderAlphaQuiz();} },1200);
+    } else {
+        say('Try again');
+        btns.forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('correct'); });
+        setTimeout(renderAlphaQuiz, 1800);
+    }
+}
+
+function showAlphaComplete() {
+    document.getElementById('gameBody').innerHTML = `
+        <div class="complete-box">
+            <div class="icon">🎉</div>
+            <h2>Barakalla!</h2>
+            <p>Alifbo testini yakunlading!</p>
+            <div class="final-score"><span>Ball: ${state.gameScore}</span></div>
+            <div class="complete-btns" style="margin-top:20px">
+                <button class="btn btn-start" onclick="startAlphaQuiz()">🔄 Qayta urinish</button>
+                <button class="btn btn-secondary" onclick="state.alphaMode='learn';renderAlpha()">📚 O'rganish</button>
+            </div>
+        </div>`;
+    addStars(5);
+    showReward(5, "Alifbo testini yakunlading!");
+}
+
+// ===================== COLORS =====================
+function renderColor() {
+    if (state.colorMode==='learn') renderColorLearn();
+    else renderColorQuiz();
+}
+
+function renderColorLearn() {
+    const c = COLORS[state.colorIdx];
+    document.getElementById('gameBody').innerHTML = `
+        <div style="text-align:center">
+            <div class="color-circle" style="background:${c.h}">${c.e}</div>
+            <div class="color-name">${c.n}</div>
+            <div class="color-examples">
+                ${c.ex.map(([em,nm])=>`<div class="color-ex"><span>${em}</span>${nm}</div>`).join('')}
+            </div>
+            <button class="btn btn-sound" onclick="say('${c.n}')">🔊 Eshitish</button>
+            <div style="display:flex;justify-content:center;gap:15px;margin-top:20px">
+                <button class="btn btn-secondary" onclick="colorPrev()" ${state.colorIdx===0?'disabled':''}>← Oldingi</button>
+                ${state.colorIdx < COLORS.length-1
+                    ? `<button class="btn btn-start" onclick="colorNext()">Keyingi →</button>`
+                    : `<button class="btn btn-start" onclick="startColorQuiz()">Test 🎯</button>`
                 }
-            } else {
-                alert('Iltimos, ismingizni kiriting!');
+            </div>
+            <div style="display:flex;justify-content:center;gap:10px;margin-top:20px;flex-wrap:wrap">
+                ${COLORS.map((cl,i)=>`
+                    <div onclick="colorJump(${i})" style="width:42px;height:42px;border-radius:50%;background:${cl.h};cursor:pointer;border:${i===state.colorIdx?'3px solid #2C3E50':'3px solid white'};box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:transform 0.2s" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></div>
+                `).join('')}
+            </div>
+        </div>`;
+    say(c.n);
+}
+
+function colorNext() {
+    if (state.colorIdx < COLORS.length-1) {
+        state.colorIdx++;
+        state.progress.colors = Math.max(state.progress.colors, state.colorIdx);
+        save(); updateMenuProgress();
+        renderColorLearn();
+    }
+}
+function colorPrev() { if(state.colorIdx>0){state.colorIdx--;renderColorLearn();} }
+function colorJump(i) { state.colorIdx=i; renderColorLearn(); }
+function startColorQuiz() { state.colorMode='quiz'; state.colorQuizIdx=0; state.gameScore=0; renderColorQuiz(); }
+
+function renderColorQuiz() {
+    const items = shuffle(COLORS);
+    const c = items[state.colorQuizIdx % items.length];
+    const opts = randOpts(c.n, COLORS, 'n');
+    document.getElementById('gameBody').innerHTML = `
+        <div style="text-align:center">
+            <h3 style="font-size:1.8rem;color:#2C3E50;margin-bottom:10px">Bu qanday rang?</h3>
+            <div class="color-circle" style="background:${c.h}">${c.e}</div>
+            <div class="color-quiz-opts">
+                ${opts.map(o=>{
+                    const col = COLORS.find(x=>x.n===o);
+                    return `<button class="btn color-opt" style="border-color:${col.h}" onclick="checkColor('${o}','${c.n}')">
+                        <div class="color-dot" style="background:${col.h}"></div>
+                        <span class="color-opt-name">${o}</span>
+                    </button>`;
+                }).join('')}
+            </div>
+            <button class="btn btn-secondary" onclick="state.colorMode='learn';renderColor()">📚 O'rganishga qaytish</button>
+        </div>`;
+}
+
+function checkColor(sel, correct) {
+    const btns = document.querySelectorAll('.color-opt');
+    btns.forEach(b=>{ if(b.querySelector('.color-opt-name').textContent===sel) b.classList.add(sel===correct?'correct':'wrong'); });
+    if (sel===correct) {
+        state.gameScore+=10; document.getElementById('gameScore').textContent=state.gameScore;
+        sayPraise(); addStars(1);
+        setTimeout(()=>{ state.colorQuizIdx++; if(state.colorQuizIdx>=COLORS.length){showColorComplete();}else{renderColorQuiz();} },1200);
+    } else {
+        say('Try again');
+        btns.forEach(b=>{ if(b.querySelector('.color-opt-name').textContent===correct) b.classList.add('correct'); });
+        setTimeout(renderColorQuiz, 1800);
+    }
+}
+
+function showColorComplete() {
+    document.getElementById('gameBody').innerHTML = `
+        <div class="complete-box">
+            <div class="icon">🎨</div>
+            <h2>Ajoyib!</h2>
+            <p>Ranglar testini yakunlading!</p>
+            <div class="final-score"><span>Ball: ${state.gameScore}</span></div>
+            <div class="complete-btns" style="margin-top:20px">
+                <button class="btn btn-start" onclick="startColorQuiz()">🔄 Qayta</button>
+                <button class="btn btn-secondary" onclick="state.colorMode='learn';renderColor()">📚 O'rganish</button>
+            </div>
+        </div>`;
+    addStars(5); showReward(5,"Ranglar testini yakunlading!");
+}
+
+// ===================== NUMBERS =====================
+function renderNum() {
+    if (state.numMode==='learn') renderNumLearn();
+    else renderNumQuiz();
+}
+
+const COUNT_EMOJIS = ['⭐','🎈','🍎','🌸','🐝','🦋','⚽','🎨'];
+
+function renderNumLearn() {
+    const c = NUMBERS[state.numIdx];
+    const em = COUNT_EMOJIS[state.numIdx % COUNT_EMOJIS.length];
+    document.getElementById('gameBody').innerHTML = `
+        <div class="num-card">
+            <div class="num-display">
+                <div class="big-num">${c.n}</div>
+                <div class="num-emoji">${c.e}</div>
+            </div>
+            <div class="num-word">${c.w}</div>
+            <button class="btn btn-sound" onclick="say('${c.w}')">🔊 Eshitish</button>
+        </div>
+        <div style="background:#f8f9fa;padding:20px;border-radius:20px;text-align:center;margin-bottom:20px">
+            <h3 style="font-size:1.5rem;color:#2C3E50;margin-bottom:15px">Let's count to ${c.n}!</h3>
+            <div class="count-items">
+                ${'<div class="count-item">'+em+'</div>'.repeat(c.n)}
+            </div>
+            <div style="display:flex;justify-content:center;gap:12px;margin-top:12px;flex-wrap:wrap">
+                ${Array.from({length:c.n},(_,i)=>`<span style="font-size:1.6rem;font-weight:700;color:#9B59B6;background:#f0e6ff;padding:8px 14px;border-radius:12px">${i+1}</span>`).join('')}
+            </div>
+        </div>
+        <div style="display:flex;justify-content:center;gap:15px;margin-bottom:20px">
+            <button class="btn btn-secondary" onclick="numPrev()" ${state.numIdx===0?'disabled':''}>← Oldingi</button>
+            ${state.numIdx < NUMBERS.length-1
+                ? `<button class="btn btn-start" onclick="numNext()">Keyingi →</button>`
+                : `<button class="btn btn-start" onclick="startNumQuiz()">Test 🎯</button>`
             }
-        });
+        </div>
+        <div class="num-grid">
+            ${NUMBERS.map((nm,i)=>`
+                <div class="num-mini ${i===state.numIdx?'active':''} ${i<state.numIdx?'done':''}"
+                     onclick="numJump(${i})">${nm.n}</div>
+            `).join('')}
+        </div>`;
+    say(c.w);
+}
 
-        userNameInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                startBtn.click();
-            }
-        });
+function numNext() {
+    if (state.numIdx < NUMBERS.length-1) {
+        state.numIdx++;
+        state.progress.numbers = Math.max(state.progress.numbers, state.numIdx);
+        save(); updateMenuProgress();
+        renderNumLearn();
+    }
+}
+function numPrev() { if(state.numIdx>0){state.numIdx--;renderNumLearn();} }
+function numJump(i) { state.numIdx=i; renderNumLearn(); }
+function startNumQuiz() { state.numMode='quiz'; state.numQuizIdx=0; state.gameScore=0; renderNumQuiz(); }
 
-        // LocalStorage'dan yuklash
-        const savedName = localStorage.getItem('userName');
-        if (savedName) {
-            userName = savedName;
-            displayName.textContent = userName;
-            welcomeSection.classList.add('hidden');
-            mainMenu.classList.remove('hidden');
-        }
+function renderNumQuiz() {
+    const items = shuffle(NUMBERS);
+    const c = items[state.numQuizIdx % items.length];
+    const em = COUNT_EMOJIS[Math.floor(Math.random()*COUNT_EMOJIS.length)];
+    const opts = randOpts(c.n, NUMBERS, 'n');
+    document.getElementById('gameBody').innerHTML = `
+        <div style="text-align:center">
+            <h3 style="font-size:1.8rem;color:#2C3E50;margin-bottom:15px">Nechta? (How many?)</h3>
+            <div class="count-items" style="min-height:120px;justify-content:center;padding:25px;background:#f8f9fa;border-radius:20px;margin-bottom:20px">
+                ${'<div class="count-item">'+em+'</div>'.repeat(c.n)}
+            </div>
+            <div class="num-quiz-opts">
+                ${opts.map(o=>`<button class="btn num-opt" onclick="checkNum(${o},${c.n})">${o}</button>`).join('')}
+            </div>
+            <button class="btn btn-secondary" onclick="state.numMode='learn';renderNum()">📚 O'rganishga qaytish</button>
+        </div>`;
+}
 
-        userNameInput.focus();
-    </script>
+function checkNum(sel, correct) {
+    const btns = document.querySelectorAll('.num-opt');
+    btns.forEach(b=>{ if(+b.textContent===sel) b.classList.add(sel===correct?'correct':'wrong'); });
+    if (sel===correct) {
+        state.gameScore+=10; document.getElementById('gameScore').textContent=state.gameScore;
+        sayPraise(); addStars(1);
+        setTimeout(()=>{ state.numQuizIdx++; if(state.numQuizIdx>=NUMBERS.length){showNumComplete();}else{renderNumQuiz();} },1200);
+    } else {
+        say('Try again');
+        btns.forEach(b=>{ if(+b.textContent===correct) b.classList.add('correct'); });
+        setTimeout(renderNumQuiz, 1800);
+    }
+}
+
+function showNumComplete() {
+    document.getElementById('gameBody').innerHTML = `
+        <div class="complete-box">
+            <div class="icon">🔢</div>
+            <h2>Excellent!</h2>
+            <p>Raqamlar testini yakunlading!</p>
+            <div class="final-score"><span>Ball: ${state.gameScore}</span></div>
+            <div class="complete-btns" style="margin-top:20px">
+                <button class="btn btn-start" onclick="startNumQuiz()">🔄 Qayta</button>
+                <button class="btn btn-secondary" onclick="state.numMode='learn';renderNum()">📚 O'rganish</button>
+            </div>
+        </div>`;
+    addStars(5); showReward(5,"Raqamlar testini yakunlading!");
+}
+
+// ===================== MATCHING =====================
+function renderMatch() {
+    const count = 6;
+    state.matchPairs    = shuffle(MATCH_WORDS).slice(0, count);
+    state.matchMatched  = [];
+    state.matchSelEmoji = null;
+    state.matchSelWord  = null;
+    state.gameScore     = 0;
+    document.getElementById('gameScore').textContent = '0';
+    renderMatchBoard();
+}
+
+function renderMatchBoard() {
+    const emojis = shuffle(state.matchPairs);
+    const words  = shuffle(state.matchPairs);
+    document.getElementById('gameBody').innerHTML = `
+        <div class="match-info">
+            <span>Rasmni so'z bilan moslashtiring!</span>
+            <span>${state.matchMatched.length} / ${state.matchPairs.length} ✅</span>
+        </div>
+        <div class="match-grid">
+            <div class="match-col">
+                ${emojis.map(item=>`
+                    <div class="match-item ${state.matchMatched.includes(item.w)?'matched':''} ${state.matchSelEmoji===item.w?'selected':''}"
+                         onclick="selectEmoji('${item.w}')">
+                        <div class="match-emoji">${item.e}</div>
+                    </div>`).join('')}
+            </div>
+            <div class="match-col">
+                ${words.map(item=>`
+                    <div class="match-item ${state.matchMatched.includes(item.w)?'matched':''} ${state.matchSelWord===item.w?'selected':''}"
+                         onclick="selectWord('${item.w}')">
+                        <p class="match-word">${item.w}</p>
+                    </div>`).join('')}
+            </div>
+        </div>`;
+}
+
+function selectEmoji(word) {
+    if (state.matchMatched.includes(word)) return;
+    state.matchSelEmoji = (state.matchSelEmoji===word) ? null : word;
+    say(word);
+    tryMatch();
+}
+function selectWord(word) {
+    if (state.matchMatched.includes(word)) return;
+    state.matchSelWord = (state.matchSelWord===word) ? null : word;
+    say(word);
+    tryMatch();
+}
+
+function tryMatch() {
+    if (!state.matchSelEmoji || !state.matchSelWord) { renderMatchBoard(); return; }
+    if (state.matchSelEmoji === state.matchSelWord) {
+        state.matchMatched.push(state.matchSelEmoji);
+        state.gameScore += 10;
+        document.getElementById('gameScore').textContent = state.gameScore;
+        sayPraise(); addStars(1);
+        state.progress.matching = Math.max(state.progress.matching, state.matchMatched.length);
+        save(); updateMenuProgress();
+        state.matchSelEmoji = null; state.matchSelWord = null;
+        setTimeout(()=>{
+            if (state.matchMatched.length === state.matchPairs.length) showMatchComplete();
+            else renderMatchBoard();
+        }, 500);
+    } else {
+        say('Try again');
+        state.matchSelEmoji = null; state.matchSelWord = null;
+        setTimeout(renderMatchBoard, 700);
+    }
+}
+
+function showMatchComplete() {
+    document.getElementById('gameBody').innerHTML = `
+        <div class="complete-box">
+            <div class="icon">🎯</div>
+            <h2>Perfect!</h2>
+            <p>Barcha so'zlarni topdingiz!</p>
+            <div class="final-score"><span>Ball: ${state.gameScore}</span></div>
+            <div class="complete-btns" style="margin-top:20px">
+                <button class="btn btn-start" onclick="renderMatch()">🔄 Yangi o'yin</button>
+                <button class="btn btn-secondary" onclick="goBack()">← Menyuga qaytish</button>
+            </div>
+        </div>`;
+    addStars(5); showReward(5,"So'z topish o'yinini yakunlading!");
+}
+
+// ===================== INIT =====================
+load();
+if (state.user) {
+    document.getElementById('displayName').textContent = state.user;
+    document.getElementById('totalStars').textContent  = state.stars;
+    document.getElementById('userLevel').textContent   = state.level;
+    showScreen('screen-menu');
+    updateMenuProgress();
+} else {
+    showScreen('screen-welcome');
+    document.getElementById('inputName').focus();
+}
+</script>
 </body>
 </html>

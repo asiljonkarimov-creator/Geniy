@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Ingliz Tili O'rganamiz! 🎮</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Yulduzlar animatsiyasi -->
+    <div class="stars-container" id="starsContainer"></div>
+    
+    <!-- Asosiy konteyner -->
+    <div class="main-container">
+        
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon">🎓</span>
+                <h1>Learn English!</h1>
+            </div>
+            <div class="user-progress">
+                <div class="stars-earned">
+                    <span class="star-icon">⭐</span>
+                    <span id="totalStars">0</span>
+                </div>
+                <div class="level-badge">
+                    <span class="trophy-icon">🏆</span>
+                    <span id="userLevel">Beginner</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Xush kelibsiz xabari -->
+        <section class="welcome-section" id="welcomeSection">
+            <div class="welcome-card">
+                <h2>👋 Salom, Do'stim!</h2>
+                <p>Ismingni yozing:</p>
+                <input type="text" id="userName" placeholder="Ismingiz..." maxlength="20">
+                <button class="btn-primary" id="startBtn">
+                    <span class="btn-icon">🚀</span>
+                    Boshlaymiz!
+                </button>
+            </div>
+        </section>
+
+        <!-- Asosiy menyu -->
+        <section class="main-menu hidden" id="mainMenu">
+            <div class="greeting">
+                <h2>Salom, <span id="displayName">Do'stim</span>! 🌟</h2>
+                <p>Bugun nimani o'rganmoqchisiz?</p>
+            </div>
+
+            <!-- O'yinlar grid -->
+            <div class="games-grid">
+                
+                <!-- Alphabet Game -->
+                <div class="game-card" data-game="alphabet">
+                    <div class="game-icon">🔤</div>
+                    <h3>Alifbo</h3>
+                    <p>Harflarni o'rganamiz</p>
+                    <div class="game-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0/26</span>
+                    </div>
+                    <button class="btn-game">O'ynash</button>
+                </div>
+
+                <!-- Colors Game -->
+                <div class="game-card" data-game="colors">
+                    <div class="game-icon">🎨</div>
+                    <h3>Ranglar</h3>
+                    <p>Ranglarni o'rganamiz</p>
+                    <div class="game-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0/10</span>
+                    </div>
+                    <button class="btn-game">O'ynash</button>
+                </div>
+
+                <!-- Numbers Game -->
+                <div class="game-card" data-game="numbers">
+                    <div class="game-icon">🔢</div>
+                    <h3>Raqamlar</h3>
+                    <p>1-10 gacha sanash</p>
+                    <div class="game-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0/10</span>
+                    </div>
+                    <button class="btn-game">O'ynash</button>
+                </div>
+
+                <!-- Animals Game -->
+                <div class="game-card" data-game="animals">
+                    <div class="game-icon">🐾</div>
+                    <h3>Hayvonlar</h3>
+                    <p>Hayvonlarni o'rganamiz</p>
+                    <div class="game-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0/15</span>
+                    </div>
+                    <button class="btn-game">O'ynash</button>
+                </div>
+
+                <!-- Word Matching Game -->
+                <div class="game-card" data-game="matching">
+                    <div class="game-icon">🎯</div>
+                    <h3>So'z Topish</h3>
+                    <p>Rasmni so'z bilan moslashtir</p>
+                    <div class="game-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0/20</span>
+                    </div>
+                    <button class="btn-game">O'ynash</button>
+                </div>
+
+                <!-- Shapes Game -->
+                <div class="game-card" data-game="shapes">
+                    <div class="game-icon">⭐</div>
+                    <h3>Shakllar</h3>
+                    <p>Shakllarni o'rganamiz</p>
+                    <div class="game-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0/6</span>
+                    </div>
+                    <button class="btn-game">O'ynash</button>
+                </div>
+
+                <!-- Foods Game -->
+                <div class="game-card" data-game="foods">
+                    <div class="game-icon">🍎</div>
+                    <h3>Ovqatlar</h3>
+                    <p>Ovqatlarni o'rganamiz</p>
+                    <div class="game-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0/20</span>
+                    </div>
+                    <button class="btn-game">O'ynash</button>
+                </div>
+
+                <!-- Family Game -->
+                <div class="game-card" data-game="family">
+                    <div class="game-icon">👨‍👩‍👧</div>
+                    <h3>Oila</h3>
+                    <p>Oila a'zolarini o'rganamiz</p>
+                    <div class="game-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0/8</span>
+                    </div>
+                    <button class="btn-game">O'ynash</button>
+                </div>
+
+            </div>
+
+            <!-- Yutuqlar bo'limi -->
+            <div class="achievements-section">
+                <h3>🏆 Mening Yutuqlarim</h3>
+                <div class="achievements-grid" id="achievementsGrid">
+                    <div class="achievement locked">
+                        <div class="achievement-icon">⭐</div>
+                        <p>Birinchi Dars</p>
+                    </div>
+                    <div class="achievement locked">
+                        <div class="achievement-icon">🎯</div>
+                        <p>5 Dars</p>
+                    </div>
+                    <div class="achievement locked">
+                        <div class="achievement-icon">🏅</div>
+                        <p>10 Dars</p>
+                    </div>
+                    <div class="achievement locked">
+                        <div class="achievement-icon">🏆</div>
+                        <p>Birinchi Oy</p>
+                    </div>
+                    <div class="achievement locked">
+                        <div class="achievement-icon">💎</div>
+                        <p>100 Yulduz</p>
+                    </div>
+                    <div class="achievement locked">
+                        <div class="achievement-icon">👑</div>
+                        <p>Master</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- O'yin konteyner -->
+        <section class="game-container hidden" id="gameContainer">
+            <div class="game-header">
+                <button class="btn-back" id="backBtn">
+                    <span>← Orqaga</span>
+                </button>
+                <h2 id="gameTitle">O'yin</h2>
+                <div class="game-score">
+                    <span class="score-icon">⭐</span>
+                    <span id="currentScore">0</span>
+                </div>
+            </div>
+            
+            <div class="game-content" id="gameContent">
+                <!-- O'yin kontenti bu yerda dinamik yuklash -->
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Mukofot modali -->
+    <div class="modal hidden" id="rewardModal">
+        <div class="modal-content reward-modal">
+            <div class="reward-animation">
+                <div class="reward-icon">🎉</div>
+                <h2>Ajoyib!</h2>
+                <p id="rewardMessage">Siz yulduz topding!</p>
+                <div class="reward-stars">
+                    <span class="big-star">⭐</span>
+                    <span class="reward-count" id="rewardCount">+1</span>
+                </div>
+            </div>
+            <button class="btn-primary" id="continueBtn">Davom etish</button>
+        </div>
+    </div>
+
+    <!-- Musiqa tugmasi -->
+    <button class="music-toggle" id="musicToggle">
+        <span id="musicIcon">🔊</span>
+    </button>
+
+    <!-- JavaScript fayllar -->
+    <script src="js/main.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="games/alphabet.js"></script>
+    <script src="games/colors.js"></script>
+    <script src="games/numbers.js"></script>
+    <script src="games/matching.js"></script>
+</body>
+</html>
